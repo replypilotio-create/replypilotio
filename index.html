@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReplyPilot - AI Google Review Responses That Sound Like You</title>
+    <meta name="description" content="Automate your Google & Yelp review replies. ReplyPilot learns your voice and writes perfect responses in seconds.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563EB', // Blue-600
+                        secondary: '#1E40AF', // Blue-800
+                        accent: '#F59E0B', // Amber-500
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-pattern {
+            background-color: #f3f4f6;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e5e7eb' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex-shrink-0 flex items-center">
+                        <i class="fa-solid fa-paper-plane text-primary text-2xl mr-2"></i>
+                        <span class="font-bold text-xl tracking-tight text-gray-900">ReplyPilot<span class="text-primary">.ai</span></span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="text-gray-600 hover:text-primary transition">Features</a>
+                    <a href="#how-it-works" class="text-gray-600 hover:text-primary transition">How it Works</a>
+                    <a href="blog/index.html" class="text-gray-600 hover:text-primary transition">Blog</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-primary transition">Pricing</a>
+                    <a href="#" class="bg-primary hover:bg-secondary text-white px-5 py-2 rounded-full font-medium transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        Get Chrome Extension
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 hero-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-4 py-1 rounded-full mb-6">
+                    🚀 Launch Special: Early Access Pricing
+                </div>
+                <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+                    Turn 5-Star Reviews Into <span class="text-primary">Loyal Customers</span>
+                </h1>
+                <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+                    Automate your Google & Yelp review responses with AI that actually sounds like you. ReplyPilot learns your voice in seconds.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#" class="bg-primary hover:bg-secondary text-white text-lg px-8 py-4 rounded-lg font-bold transition shadow-lg flex items-center justify-center">
+                        <i class="fab fa-chrome mr-2"></i> Add to Chrome - It's Free
+                    </a>
+                    <a href="#demo" class="bg-white hover:bg-gray-50 text-gray-800 border border-gray-300 text-lg px-8 py-4 rounded-lg font-bold transition flex items-center justify-center">
+                        <i class="fas fa-play mr-2 text-primary"></i> See How It Works
+                    </a>
+                </div>
+                <div class="mt-8 text-sm text-gray-500 flex justify-center items-center gap-6">
+                    <span class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> No Credit Card Required</span>
+                    <span class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Works on Google & Yelp</span>
+                    <span class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Setup in 2 Minutes</span>
+                </div>
+            </div>
+            
+            <!-- Hero Image Placeholder -->
+            <div class="mt-16 relative mx-auto max-w-sm">
+                <div class="bg-white rounded-xl shadow-2xl border-4 border-gray-200 overflow-hidden relative group transform transition hover:scale-105 duration-500">
+                    <!-- Fake Browser Chrome -->
+                    <div class="bg-gray-100 border-b border-gray-200 px-4 py-2 flex items-center justify-between">
+                        <div class="flex space-x-2">
+                            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                        </div>
+                        <div class="text-xs font-bold text-gray-500 flex items-center">
+                            <i class="fa-solid fa-paper-plane text-primary mr-1"></i> ReplyPilot
+                        </div>
+                        <div class="w-4"></div>
+                    </div>
+                    
+                    <!-- Extension UI Mockup -->
+                    <div class="p-4 bg-white font-sans text-left">
+                        <div class="border-b pb-3 mb-3">
+                            <h3 class="font-bold text-gray-800 text-sm">New Review Detected</h3>
+                            <p class="text-xs text-gray-500">Google Business Profile • Just now</p>
+                        </div>
+                        
+                        <!-- The Review -->
+                        <div class="bg-gray-50 p-3 rounded-lg mb-4 border border-gray-100">
+                            <div class="flex items-center mb-1">
+                                <div class="text-yellow-400 text-xs mr-2">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                                <span class="font-bold text-xs text-gray-700">Sarah M.</span>
+                            </div>
+                            <p class="text-xs text-gray-600 italic">"Absolutely loved the service! The team was fast and super friendly. Highly recommend to anyone looking for quality work."</p>
+                        </div>
+
+                        <!-- The Generated Reply -->
+                        <div class="mb-4">
+                            <label class="block text-xs font-bold text-gray-700 mb-1">AI Suggested Reply <span class="text-primary bg-blue-50 px-1 rounded ml-1">98% Match</span></label>
+                            <textarea class="w-full text-xs p-2 border border-blue-200 rounded-lg bg-blue-50 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="4">Hi Sarah! Thanks so much for the 5 stars. We're thrilled to hear you had a great experience with the team. It was a pleasure working with you, and we appreciate the recommendation! Hope to see you again soon.</textarea>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="flex gap-2">
+                            <button class="flex-1 bg-primary text-white text-xs font-bold py-2 rounded hover:bg-blue-700 transition">
+                                <i class="fas fa-paper-plane mr-1"></i> Post Reply
+                            </button>
+                            <button class="px-3 py-2 bg-gray-100 text-gray-600 rounded hover:bg-gray-200 transition">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="mt-3 text-center">
+                            <p class="text-[10px] text-gray-400">Powered by Claude 3.5 Sonnet</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Decorative elements -->
+                <div class="absolute -top-10 -right-10 w-24 h-24 bg-yellow-400 rounded-full opacity-20 blur-xl"></div>
+                <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-blue-500 rounded-full opacity-20 blur-xl"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="py-10 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400 font-medium text-sm uppercase tracking-wider mb-6">Optimized for Business Owners on</p>
+            <div class="flex justify-center items-center gap-12 opacity-60 grayscale hover:grayscale-0 transition duration-500">
+                <div class="flex items-center gap-2 text-2xl font-bold text-gray-600"><i class="fab fa-google text-red-500"></i> Google Business</div>
+                <div class="flex items-center gap-2 text-2xl font-bold text-gray-600"><i class="fab fa-yelp text-red-600"></i> Yelp</div>
+                <div class="flex items-center gap-2 text-2xl font-bold text-gray-600"><i class="fas fa-map-marker-alt text-blue-500"></i> Apple Maps</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Business Owners Love ReplyPilot</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Managing reputation is hard. We make it automatic, personal, and effortless.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12">
+                <!-- Feature 1 -->
+                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition duration-300">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-primary text-2xl mb-6">
+                        <i class="fas fa-fingerprint"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Learns Your Voice</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Unlike generic AI, ReplyPilot analyzes your past replies to match your tone. Whether you're professional, casual, or funny—we sound like you.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition duration-300">
+                    <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center text-green-600 text-2xl mb-6">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">One-Click Replies</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Open the extension, click "Generate," and watch the magic happen. Approve or edit in seconds. What used to take an hour now takes 5 minutes.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition duration-300">
+                    <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 text-2xl mb-6">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Boost Your SEO</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Google loves active businesses. Replying quickly to every review signals you're open for business, pushing your profile up the local search rankings.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-24 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Setup Takes Less Than 2 Minutes</h2>
+                    <p class="text-gray-400 text-lg mb-10">No complex integrations. No API keys. Just install and go.</p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-primary flex items-center justify-center font-bold text-lg">1</div>
+                            <div class="ml-6">
+                                <h4 class="text-xl font-bold mb-2">Install the Extension</h4>
+                                <p class="text-gray-400">Add ReplyPilot to Chrome. It sits quietly in your browser until you need it.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-primary flex items-center justify-center font-bold text-lg">2</div>
+                            <div class="ml-6">
+                                <h4 class="text-xl font-bold mb-2">Connect Your Profile</h4>
+                                <p class="text-gray-400">Log in to your Google Business Profile. We'll scan your past replies to learn your style.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-primary flex items-center justify-center font-bold text-lg">3</div>
+                            <div class="ml-6">
+                                <h4 class="text-xl font-bold mb-2">Start Replying</h4>
+                                <p class="text-gray-400">Click "Generate" on any new review. We draft the perfect response instantly.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-gray-800 rounded-xl p-4 shadow-2xl border border-gray-700">
+                        <!-- Placeholder for animated GIF or video -->
+                        <div class="aspect-square bg-gray-700 rounded flex items-center justify-center">
+                            <span class="text-gray-500">Demo Animation Here</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900">Why We're Different</h2>
+            </div>
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-gray-50 border-b border-gray-200">
+                            <th class="py-6 px-6 text-left text-gray-500 font-medium">Feature</th>
+                            <th class="py-6 px-6 text-center text-primary font-bold text-xl bg-blue-50 w-1/3">ReplyPilot</th>
+                            <th class="py-6 px-6 text-center text-gray-400 font-medium w-1/3">Typical Agency</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        <tr>
+                            <td class="py-4 px-6 font-medium text-gray-900">Cost per Month</td>
+                            <td class="py-4 px-6 text-center font-bold text-green-600 bg-blue-50">$19</td>
+                            <td class="py-4 px-6 text-center text-gray-500">$300+</td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 font-medium text-gray-900">Setup Time</td>
+                            <td class="py-4 px-6 text-center font-bold text-gray-800 bg-blue-50">2 Minutes</td>
+                            <td class="py-4 px-6 text-center text-gray-500">2 Weeks</td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 font-medium text-gray-900">Learns Your Voice</td>
+                            <td class="py-4 px-6 text-center text-green-500 bg-blue-50"><i class="fas fa-check-circle text-xl"></i></td>
+                            <td class="py-4 px-6 text-center text-gray-300"><i class="fas fa-times-circle text-xl"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 font-medium text-gray-900">Unlimited Replies</td>
+                            <td class="py-4 px-6 text-center text-green-500 bg-blue-50"><i class="fas fa-check-circle text-xl"></i></td>
+                            <td class="py-4 px-6 text-center text-gray-300"><i class="fas fa-times-circle text-xl"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Simple, Transparent Pricing</h2>
+                <p class="text-xl text-gray-600">No contracts. Cancel anytime. 14-day money-back guarantee.</p>
+            </div>
+
+            <div class="max-w-lg mx-auto bg-white rounded-3xl shadow-2xl border-2 border-primary overflow-hidden transform hover:scale-105 transition duration-300">
+                <div class="bg-primary p-6 text-center">
+                    <span class="bg-white text-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Most Popular</span>
+                    <h3 class="text-white text-2xl font-bold mt-4">Growth Plan</h3>
+                </div>
+                <div class="p-10">
+                    <div class="flex justify-center items-baseline mb-8">
+                        <span class="text-5xl font-extrabold text-gray-900">$19</span>
+                        <span class="text-gray-500 ml-2">/month</span>
+                    </div>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-green-500 mr-3"></i> Unlimited AI Replies
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-green-500 mr-3"></i> Voice Profile Learning
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-green-500 mr-3"></i> Google & Yelp Support
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-green-500 mr-3"></i> Priority Email Support
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-green-500 mr-3"></i> Cancel Anytime
+                        </li>
+                    </ul>
+                    <a href="#" class="block w-full bg-primary hover:bg-secondary text-white text-center font-bold py-4 rounded-xl transition shadow-lg">
+                        Start 14-Day Free Trial
+                    </a>
+                    <p class="text-center text-gray-400 text-sm mt-4">Powered by Secure Payment Processing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <a href="#" class="flex items-center mb-4">
+                        <i class="fa-solid fa-paper-plane text-primary text-xl mr-2"></i>
+                        <span class="font-bold text-xl text-white">ReplyPilot.ai</span>
+                    </a>
+                    <p class="mb-4 max-w-sm">Helping small businesses save time and grow their reputation with intelligent automation.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-white transition"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Product</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="hover:text-primary transition">Features</a></li>
+                        <li><a href="#pricing" class="hover:text-primary transition">Pricing</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Chrome Extension</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Roadmap</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Contact</a></li>
+                        <li><a href="privacy.html" class="hover:text-primary transition">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="hover:text-primary transition">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+                <p>&copy; 2026 ReplyPilot. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="privacy.html" class="hover:text-white">Privacy</a>
+                    <a href="terms.html" class="hover:text-white">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
